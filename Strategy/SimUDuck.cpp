@@ -20,7 +20,7 @@ struct IDanceBehavior
 	virtual void Dance() = 0;
 };
 
-namespace FlyTypes
+namespace FlyBehaviorTypes
 {
 	class CFlyWithWings : public IFlyBehavior
 	{
@@ -46,7 +46,7 @@ namespace FlyTypes
 	};
 }
 
-namespace SoundTypes
+namespace SoundBehaviorTypes
 {
 	class CQuack : public ISoundBehavior
 	{
@@ -73,7 +73,7 @@ namespace SoundTypes
 	};
 }
 
-namespace DanceTypes
+namespace DanceBehaviorTypes
 {
 	class CDanceWaltz : public IDanceBehavior
 	{
@@ -148,7 +148,7 @@ class CMallardDuck : public CDuck
 {
 public:
 	CMallardDuck()
-		: CDuck(make_unique<FlyTypes::CFlyWithWings>(), make_unique<SoundTypes::CQuack>(), make_unique<DanceTypes::CDanceWaltz>())
+		: CDuck(make_unique<FlyBehaviorTypes::CFlyWithWings>(), make_unique<SoundBehaviorTypes::CQuack>(), make_unique<DanceBehaviorTypes::CDanceWaltz>())
 	{
 	}
 
@@ -162,7 +162,7 @@ class CRedheadDuck : public CDuck
 {
 public:
 	CRedheadDuck()
-		: CDuck(make_unique<FlyTypes::CFlyWithWings>(), make_unique<SoundTypes::CQuack>(), make_unique<DanceTypes::CDanceMinuet>())
+		: CDuck(make_unique<FlyBehaviorTypes::CFlyWithWings>(), make_unique<SoundBehaviorTypes::CQuack>(), make_unique<DanceBehaviorTypes::CDanceMinuet>())
 	{
 	}
 
@@ -175,7 +175,7 @@ class CDeckoyDuck : public CDuck
 {
 public:
 	CDeckoyDuck()
-		: CDuck(make_unique<FlyTypes::CFlyNoWay>(), make_unique<SoundTypes::CSoundNoWay>(), make_unique<DanceTypes::CDanceNoWay>())
+		: CDuck(make_unique<FlyBehaviorTypes::CFlyNoWay>(), make_unique<SoundBehaviorTypes::CSoundNoWay>(), make_unique<DanceBehaviorTypes::CDanceNoWay>())
 	{
 	}
 
@@ -189,7 +189,7 @@ class CRubberDuck : public CDuck
 {
 public:
 	CRubberDuck()
-		: CDuck(make_unique<FlyTypes::CFlyNoWay>(), make_unique<SoundTypes::CSqueak>(), make_unique<DanceTypes::CDanceNoWay>())
+		: CDuck(make_unique<FlyBehaviorTypes::CFlyNoWay>(), make_unique<SoundBehaviorTypes::CSqueak>(), make_unique<DanceBehaviorTypes::CDanceNoWay>())
 	{
 	}
 
@@ -203,7 +203,7 @@ class CModelDuck : public CDuck
 {
 public:
 	CModelDuck()
-		: CDuck(make_unique<FlyTypes::CFlyNoWay>(), make_unique<SoundTypes::CQuack>(), make_unique<DanceTypes::CDanceNoWay>())
+		: CDuck(make_unique<FlyBehaviorTypes::CFlyNoWay>(), make_unique<SoundBehaviorTypes::CQuack>(), make_unique<DanceBehaviorTypes::CDanceNoWay>())
 	{
 	}
 	void Display() const override
