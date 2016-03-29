@@ -8,57 +8,10 @@ struct IFlyBehavior
 	virtual void Fly() = 0;
 };
 
-class FlyWithWings : public IFlyBehavior
-{
-public:
-	FlyWithWings() : m_flightsCount(0)
-	{
-	}
-
-	void Fly() override
-	{
-		cout << "I'm flying with wings!" << endl
-			<< "It's my "<< ++m_flightsCount << " flight" << endl;
-	}
-
-private:
-	size_t m_flightsCount;
-};
-
-class FlyNoWay : public IFlyBehavior
-{
-public:
-	void Fly() override {}
-};
-
 struct ISoundBehavior
 {
 	virtual ~ISoundBehavior() {};
 	virtual void Sound() = 0;
-};
-
-class Quack : public ISoundBehavior
-{
-public:
-	void Sound() override
-	{
-		cout << "Quack! Quack!" << endl;
-	}
-};
-
-class Squeak : public ISoundBehavior
-{
-public:
-	void Sound() override
-	{
-		cout << "Squeek!" << endl;
-	}
-};
-
-class SoundNoWay : public ISoundBehavior
-{
-public:
-	void Sound() override {}
 };
 
 struct IDanceBehavior
@@ -67,34 +20,90 @@ struct IDanceBehavior
 	virtual void Dance() = 0;
 };
 
-class DanceWaltz : public IDanceBehavior
+namespace FlyTypes
 {
-public:
-	void Dance() override
+	class CFlyWithWings : public IFlyBehavior
 	{
-		cout << "I'm dancing waltz!" << endl;
-	}
-};
+	public:
+		CFlyWithWings() : m_flightsCount(0)
+		{
+		}
 
-class DanceMinuet : public IDanceBehavior
-{
-public:
-	void Dance() override
+		void Fly() override
+		{
+			cout << "I'm flying with wings!" << endl
+				<< "It's my " << ++m_flightsCount << " flight" << endl;
+		}
+
+	private:
+		size_t m_flightsCount;
+	};
+
+	class CFlyNoWay : public IFlyBehavior
 	{
-		cout << "I'm dancing minuet!" << endl;
-	}
-};
+	public:
+		void Fly() override {}
+	};
+}
 
-class DanceNoWay : public IDanceBehavior
+namespace SoundTypes
+{
+	class CQuack : public ISoundBehavior
+	{
+	public:
+		void Sound() override
+		{
+			cout << "Quack! Quack!" << endl;
+		}
+	};
+
+	class CSqueak : public ISoundBehavior
+	{
+	public:
+		void Sound() override
+		{
+			cout << "Squeek!" << endl;
+		}
+	};
+
+	class CSoundNoWay : public ISoundBehavior
+	{
+	public:
+		void Sound() override {}
+	};
+}
+
+namespace DanceTypes
+{
+	class CDanceWaltz : public IDanceBehavior
+	{
+	public:
+		void Dance() override
+		{
+			cout << "I'm dancing waltz!" << endl;
+		}
+	};
+
+	class CDanceMinuet : public IDanceBehavior
+	{
+	public:
+		void Dance() override
+		{
+			cout << "I'm dancing minuet!" << endl;
+		}
+	};
+
+	class CDanceNoWay : public IDanceBehavior
+	{
+	public:
+		void Dance() override {}
+	};
+}
+
+class CDuck
 {
 public:
-	void Dance() override {}
-};
-
-class Duck
-{
-public:
-	Duck(unique_ptr<IFlyBehavior> && flyBehavior,
+	CDuck(unique_ptr<IFlyBehavior> && flyBehavior,
 		unique_ptr<ISoundBehavior> && quackBehavior,
 		unique_ptr<IDanceBehavior> && danceBehavior)
 		: m_quackBehavior(move(quackBehavior))
@@ -127,7 +136,7 @@ public:
 	}
 
 	virtual void Display() const = 0;
-	virtual ~Duck() {};
+	virtual ~CDuck() {};
 
 private:
 	unique_ptr<IFlyBehavior> m_flyBehavior;
@@ -135,11 +144,11 @@ private:
 	unique_ptr<IDanceBehavior> m_danceBehavior;
 };
 
-class MallardDuck : public Duck
+class CMallardDuck : public CDuck
 {
 public:
-	MallardDuck()
-		: Duck(make_unique<FlyWithWings>(), make_unique<Quack>(), make_unique<DanceWaltz>())
+	CMallardDuck()
+		: CDuck(make_unique<FlyTypes::CFlyWithWings>(), make_unique<SoundTypes::CQuack>(), make_unique<DanceTypes::CDanceWaltz>())
 	{
 	}
 
@@ -149,11 +158,11 @@ public:
 	}
 };
 
-class RedheadDuck : public Duck
+class CRedheadDuck : public CDuck
 {
 public:
-	RedheadDuck()
-		: Duck(make_unique<FlyWithWings>(), make_unique<Quack>(), make_unique<DanceMinuet>())
+	CRedheadDuck()
+		: CDuck(make_unique<FlyTypes::CFlyWithWings>(), make_unique<SoundTypes::CQuack>(), make_unique<DanceTypes::CDanceMinuet>())
 	{
 	}
 
@@ -162,11 +171,11 @@ public:
 		cout << "I'm redhead duck!" << endl;
 	}
 };
-class DeckoyDuck : public Duck
+class CDeckoyDuck : public CDuck
 {
 public:
-	DeckoyDuck()
-		: Duck(make_unique<FlyNoWay>(), make_unique<SoundNoWay>(), make_unique<DanceNoWay>())
+	CDeckoyDuck()
+		: CDuck(make_unique<FlyTypes::CFlyNoWay>(), make_unique<SoundTypes::CSoundNoWay>(), make_unique<DanceTypes::CDanceNoWay>())
 	{
 	}
 
@@ -176,11 +185,11 @@ public:
 	}
 
 };
-class RubberDuck : public Duck
+class CRubberDuck : public CDuck
 {
 public:
-	RubberDuck()
-		: Duck(make_unique<FlyNoWay>(), make_unique<Squeak>(), make_unique<DanceNoWay>())
+	CRubberDuck()
+		: CDuck(make_unique<FlyTypes::CFlyNoWay>(), make_unique<SoundTypes::CSqueak>(), make_unique<DanceTypes::CDanceNoWay>())
 	{
 	}
 
@@ -190,11 +199,11 @@ public:
 	}
 };
 
-class ModelDuck : public Duck
+class CModelDuck : public CDuck
 {
 public:
-	ModelDuck()
-		: Duck(make_unique<FlyNoWay>(), make_unique<Quack>(), make_unique<DanceNoWay>())
+	CModelDuck()
+		: CDuck(make_unique<FlyTypes::CFlyNoWay>(), make_unique<SoundTypes::CQuack>(), make_unique<DanceTypes::CDanceNoWay>())
 	{
 	}
 	void Display() const override
@@ -203,12 +212,12 @@ public:
 	}
 };
 
-void DrawDuck(Duck const& duck)
+void DrawDuck(CDuck const& duck)
 {
 	duck.Display();
 }
 
-void PlayWithDuck(Duck & duck)
+void PlayWithDuck(CDuck & duck)
 {
 	DrawDuck(duck);
 	duck.Sound();
@@ -219,14 +228,14 @@ void PlayWithDuck(Duck & duck)
 
 void main()
 {
-	MallardDuck mallarDuck;
+	CMallardDuck mallarDuck;
 	PlayWithDuck(mallarDuck);
-	RedheadDuck redheadDuck;
+	CRedheadDuck redheadDuck;
 	PlayWithDuck(redheadDuck);
-	RubberDuck rubberDuck;
+	CRubberDuck rubberDuck;
 	PlayWithDuck(rubberDuck);
-	DeckoyDuck deckoyDuck;
+	CDeckoyDuck deckoyDuck;
 	PlayWithDuck(deckoyDuck);
-	ModelDuck modelDuck;
+	CModelDuck modelDuck;
 	PlayWithDuck(modelDuck);
 }
