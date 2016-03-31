@@ -18,10 +18,8 @@ struct SWeatherInfo
 class CDisplay: public IObserver<SWeatherInfo>
 {
 private:
-	void Update(SWeatherInfo const& data, std::string const& stationName) override
+	void Update(SWeatherInfo const& data) override
 	{
-		stationName.empty() ? cout << "[Nameless station]" : cout << "[" << stationName << "]";
-		cout << endl;
 		cout << "Current Temperature " << data.temperature << endl;
 		cout << "Current Humidity " << data.humidity << endl;
 		cout << "Current Pressure " << data.pressure << endl;
@@ -85,15 +83,12 @@ public:
 	}
 
 private:
-	void Update(SWeatherInfo const& data, std::string const& stationName) override
+	void Update(SWeatherInfo const& data) override
 	{
 
 		m_temperatureStat.Update(data.temperature);
 		m_humidityStat.Update(data.humidity);
 		m_pressureStat.Update(data.pressure);
-
-		stationName.empty() ? cout << "[Nameless station]" : cout << "[" << stationName << "]";
-		cout << endl;
 
 		m_temperatureStat.PrintStatistics();
 		m_humidityStat.PrintStatistics();
@@ -109,9 +104,6 @@ private:
 class CWeatherData : public CObservable<SWeatherInfo>
 {
 public:
-	CWeatherData(std::string stationName = "") : CObservable(stationName)
-	{
-	}
 
 	double GetTemperature()const
 	{

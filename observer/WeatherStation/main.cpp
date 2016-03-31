@@ -2,7 +2,7 @@
 
 int main()
 {
-	CWeatherData wd("in");
+	CWeatherData wd;
 
 	CDisplay display;
 	wd.RegisterObserver(display, 10);

@@ -13,7 +13,7 @@ template <typename T>
 class IObserver
 {
 public:
-	virtual void Update(T const& data, std::string const& stationName) = 0;
+	virtual void Update(T const& data) = 0;
 	virtual ~IObserver() = default;
 };
 
@@ -38,10 +38,6 @@ class CObservable : public IObservable<T>
 public:
 	typedef IObserver<T> ObserverType;
 
-	CObservable(std::string const& stationName = "") : m_stationName(stationName)
-	{
-	}
-
 	void RegisterObserver(ObserverType & observer, size_t priority) override
 	{
 		m_observers.emplace(priority, &observer);
@@ -52,7 +48,7 @@ public:
 		T data = GetChangedData();
 		for (auto it = m_observers.rbegin(); it != m_observers.rend(); ++it)
 		{
-			it->second->Update(data, m_stationName);
+			it->second->Update(data);
 		}
 	}
 
@@ -75,5 +71,4 @@ protected:
 
 private:
 	std::multimap<size_t, ObserverType *> m_observers;
-	std::string m_stationName;
 };
