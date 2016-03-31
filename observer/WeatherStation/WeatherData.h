@@ -33,11 +33,12 @@ class CWeatherStatistic
 {
 
 public:
-	CWeatherStatistic()
+	CWeatherStatistic(std::string const& statisticName)
 		: m_minValue(std::numeric_limits<double>::infinity())
 		, m_maxValue(-std::numeric_limits<double>::infinity())
 		, m_accValue(0)
 		, m_countAcc(0)
+		, m_statisticName(statisticName)
 	{
 	}
 
@@ -56,9 +57,9 @@ public:
 		++m_countAcc;
 	}
 
-	void PrintStatistics(string const& statisticName) const
+	void PrintStatistics() const
 	{
-		cout << "[" << statisticName << "]" << endl;
+		cout << "[" << m_statisticName << "]" << endl;
 		cout << "Max: " << m_maxValue << endl;
 		cout << "Min: "  << m_minValue << endl;
 		cout << "Average: " << m_accValue / m_countAcc << endl;
@@ -70,10 +71,19 @@ private:
 	double m_maxValue;
 	double m_accValue;
 	unsigned m_countAcc;
+	std::string m_statisticName;
 };
 
 class CStatsDisplay : public IObserver<SWeatherInfo>
 {
+public:
+	CStatsDisplay()
+		: m_temperatureStat("Temperature")
+		, m_humidityStat("Humidity")
+		, m_pressureStat("Pressure")
+	{
+	}
+
 private:
 	void Update(SWeatherInfo const& data, std::string const& stationName) override
 	{
@@ -85,9 +95,9 @@ private:
 		stationName.empty() ? cout << "[Nameless station]" : cout << "[" << stationName << "]";
 		cout << endl;
 
-		m_temperatureStat.PrintStatistics("Temperature");
-		m_humidityStat.PrintStatistics("Humidity");
-		m_pressureStat.PrintStatistics("Pressure");
+		m_temperatureStat.PrintStatistics();
+		m_humidityStat.PrintStatistics();
+		m_pressureStat.PrintStatistics();
 	}
 
 	CWeatherStatistic m_temperatureStat;
