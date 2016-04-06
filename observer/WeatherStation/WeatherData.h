@@ -85,7 +85,6 @@ public:
 private:
 	void Update(SWeatherInfo const& data) override
 	{
-
 		m_temperatureStat.Update(data.temperature);
 		m_humidityStat.Update(data.humidity);
 		m_pressureStat.Update(data.pressure);
@@ -98,13 +97,11 @@ private:
 	CWeatherStatistic m_temperatureStat;
 	CWeatherStatistic m_humidityStat;
 	CWeatherStatistic m_pressureStat;
-
 };
 
 class CWeatherData : public CObservable<SWeatherInfo>
 {
 public:
-
 	double GetTemperature()const
 	{
 		return m_temperature;

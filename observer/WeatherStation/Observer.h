@@ -2,6 +2,7 @@
 
 #include <map>
 #include <functional>
+#include <memory>
 
 /*
 Шаблонный интерфейс IObserver. Его должен реализовывать класс, 
