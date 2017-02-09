@@ -1,75 +1,61 @@
 #include "stdafx.h"
 
 using namespace std;
-
 typedef std::function<void()> Behavior;
-
-struct IFlyBehavior
-{
-	virtual ~IFlyBehavior() {};
-	virtual void Fly() = 0;
-};
-
-struct ISoundBehavior
-{
-	virtual ~ISoundBehavior() {};
-	virtual void Sound() = 0;
-};
-
-struct IDanceBehavior
-{
-	virtual ~IDanceBehavior() {};
-	virtual void Dance() = 0;
-};
 
 namespace FlyBehaviorTypes
 {
-	Behavior FlyWithWings()
-	{
-		int flightsCount = 0;
-		return [=]()mutable {
-			cout << "I'm flying with wings!" << endl
-				<< "It's my " << ++flightsCount << " flight" << endl;
-		};
-	}
 
+Behavior FlyWithWings()
+{
+	int flightCount = 0;
+	return [flightCount]() mutable {
+		cout << "I'm flying with wings!" << endl
+			<< "It's my " << ++flightCount << " flight" << endl;
+	};
+}
 
-	void FlyNoWay()
-	{
-	}
+void FlyNoWay()
+{
+}
+
 }
 
 namespace SoundBehaviorTypes
 {
-	void Quack()
-	{
-		cout << "Quack! Quack!" << endl;
-	}
-	void Squeak()
-	{
-		cout << "Squeek!" << endl;
-	}
 
-	void SoundNoWay()
-	{
-	}
+void Quack()
+{
+	cout << "Quack! Quack!" << endl;
+}
+void Squeak()
+{
+	cout << "Squeek!" << endl;
+}
+
+void SoundNoWay()
+{
+}
+
 }
 
 namespace DanceBehaviorTypes
 {
-	void DanceWaltz()
-	{
-		cout << "I'm dancing waltz!" << endl;
-	}
 
-	void DanceMinuet()
-	{
-		cout << "I'm dancing minuet!" << endl;
-	}
+void DanceWaltz()
+{
+	cout << "I'm dancing waltz!" << endl;
+}
+
+void DanceMinuet()
+{
+	cout << "I'm dancing minuet!" << endl;
+}
 	
-	void DanceNoWay()
-	{
-	}
+void DanceNoWay()
+{
+}
+
 }
 
 class CDuck
@@ -143,6 +129,7 @@ public:
 		cout << "I'm redhead duck!" << endl;
 	}
 };
+
 class CDeckoyDuck : public CDuck
 {
 public:
@@ -155,8 +142,8 @@ public:
 	{
 		cout << "I'm deckoy duck!" << endl;
 	}
-
 };
+
 class CRubberDuck : public CDuck
 {
 public:
@@ -178,6 +165,7 @@ public:
 		: CDuck(FlyBehaviorTypes::FlyNoWay, SoundBehaviorTypes::Quack, DanceBehaviorTypes::DanceNoWay)
 	{
 	}
+
 	void Display() const override
 	{
 		cout << "I'm model duck" << endl;
