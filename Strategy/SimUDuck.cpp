@@ -22,82 +22,88 @@ struct IDanceBehavior
 
 namespace FlyBehaviorTypes
 {
-	class CFlyWithWings : public IFlyBehavior
+
+class CFlyWithWings : public IFlyBehavior
+{
+public:
+	CFlyWithWings() : m_flightsCount(0)
 	{
-	public:
-		CFlyWithWings() : m_flightsCount(0)
-		{
-		}
+	}
 
-		void Fly() override
-		{
-			cout << "I'm flying with wings!" << endl
-				<< "It's my " << ++m_flightsCount << " flight" << endl;
-		}
-
-	private:
-		size_t m_flightsCount;
-	};
-
-	class CFlyNoWay : public IFlyBehavior
+	void Fly() override
 	{
-	public:
-		void Fly() override {}
-	};
+		cout << "I'm flying with wings!" << endl
+			<< "It's my " << ++m_flightsCount << " flight" << endl;
+	}
+
+private:
+	size_t m_flightsCount;
+};
+
+class CFlyNoWay : public IFlyBehavior
+{
+public:
+	void Fly() override {}
+};
+
 }
 
 namespace SoundBehaviorTypes
 {
-	class CQuack : public ISoundBehavior
-	{
-	public:
-		void Sound() override
-		{
-			cout << "Quack! Quack!" << endl;
-		}
-	};
 
-	class CSqueak : public ISoundBehavior
+class CQuack : public ISoundBehavior
+{
+public:
+	void Sound() override
 	{
-	public:
-		void Sound() override
-		{
-			cout << "Squeek!" << endl;
-		}
-	};
+		cout << "Quack! Quack!" << endl;
+	}
+};
 
-	class CSoundNoWay : public ISoundBehavior
+class CSqueak : public ISoundBehavior
+{
+public:
+	void Sound() override
 	{
-	public:
-		void Sound() override {}
-	};
+		cout << "Squeek!" << endl;
+	}
+};
+
+class CSoundNoWay : public ISoundBehavior
+{
+public:
+	void Sound() override {}
+};
+
 }
 
 namespace DanceBehaviorTypes
 {
-	class CDanceWaltz : public IDanceBehavior
-	{
-	public:
-		void Dance() override
-		{
-			cout << "I'm dancing waltz!" << endl;
-		}
-	};
 
-	class CDanceMinuet : public IDanceBehavior
+class CDanceWaltz : public IDanceBehavior
+{
+public:
+	void Dance() override
 	{
-	public:
-		void Dance() override
-		{
-			cout << "I'm dancing minuet!" << endl;
-		}
-	};
+		cout << "I'm dancing waltz!" << endl;
+	}
+};
 
-	class CDanceNoWay : public IDanceBehavior
+class CDanceMinuet : public IDanceBehavior
+{
+public:
+	void Dance() override
 	{
-	public:
-		void Dance() override {}
-	};
+		cout << "I'm dancing minuet!" << endl;
+	}
+};
+
+class CDanceNoWay : public IDanceBehavior
+{
+public:
+	void Dance() override {}
+};
+
 }
 
 class CDuck
@@ -171,6 +177,7 @@ public:
 		cout << "I'm redhead duck!" << endl;
 	}
 };
+
 class CDeckoyDuck : public CDuck
 {
 public:
@@ -185,6 +192,7 @@ public:
 	}
 
 };
+
 class CRubberDuck : public CDuck
 {
 public:
