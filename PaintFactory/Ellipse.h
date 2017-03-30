@@ -4,7 +4,7 @@
 class CEllipse : public CAbstractShape
 {
 public:
-    CEllipse(const SPoint & center, float radius, float radius1);
+    CEllipse(const SPoint & center, float horizontalRadius, float verticalRadius);
 
     void Draw(ICanvas & canvas) override;
 
@@ -14,6 +14,6 @@ public:
 
 private:
     SPoint m_center;
-    float m_fRadius;
-    float m_sRadius;
+    float m_horizontalRadius;
+    float m_verticalRadius;
 };

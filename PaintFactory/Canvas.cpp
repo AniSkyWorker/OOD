@@ -3,10 +3,10 @@
 
 using namespace color;
 
-const unsigned ELLIPSE_QUALITY = 100;
+const unsigned ELLIPSE_QUALITY = 70;
 
 CCanvas::CCanvas()
-    : sf::RenderWindow(sf::VideoMode(800, 600), "Canvas")
+    : sf::RenderWindow(sf::VideoMode(800, 600), "Canvas", sf::Style::Close)
 {
 }
 
@@ -50,4 +50,24 @@ void CCanvas::DrawEllipse(const SPoint & center, float width, float height, sf::
 
    // std::cout << "Draw " + color::ColorToString(color) + " ellipse with radiuses: " + std::to_string(width) + " and " + std::to_string(height) << "\n"
    //     << "with center in" << center.ToString() << "\n";
+}
+
+void CCanvas::Show()
+{
+    display();
+}
+
+void CCanvas::WaitingForClose()
+{
+    while (isOpen())
+    {
+        sf::Event event;
+        while (pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                close();
+            }
+        }
+    }
 }

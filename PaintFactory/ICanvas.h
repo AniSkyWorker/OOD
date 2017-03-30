@@ -9,5 +9,8 @@ public:
 	virtual void DrawLine(const SPoint & from, const SPoint & to, sf::Color color) = 0;
     virtual void DrawEllipse(const SPoint & center, float width, float height, sf::Color color) = 0;
 
+    virtual void Show() = 0;
+    virtual void WaitingForClose() = 0;
+
     virtual ~ICanvas() = default;
 };

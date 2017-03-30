@@ -75,6 +75,7 @@
     <ClInclude Include="RegularPolygon.h">
       <Filter>Shapes</Filter>
     </ClInclude>
+    <ClInclude Include="ShapeType.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbstractShape.cpp">

@@ -9,15 +9,15 @@ CClient::CClient(IDesigner & designer, const IPainter & painter)
     , m_painter(painter)
 {}
 
-void CClient::CreatePicture()
+void CClient::CreatePicture(std::istream & strm)
 {
     CCanvas canvas;
 
     std::cout << "Input canvas color:" << "\n";
-    auto color = color::GetColor(std::cin);
+    auto color = color::GetColor(strm);
 
     canvas.SetColor(color);
-    m_painter.DrawPicture(canvas, m_designer.CreateDraft(std::cin));
+    m_painter.DrawPicture(canvas, m_designer.CreateDraft(strm));
 }
 
 

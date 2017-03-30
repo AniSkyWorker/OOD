@@ -7,11 +7,22 @@ CDesigner::CDesigner(std::unique_ptr<IShapeFactory>&& factory)
 
 const IPictureDraft & CDesigner::CreateDraft(std::istream & strm)
 {
-    std::string shapeDescription;
     std::cout << "Enter shape and params:" << "\n";
-    while (!strm.eof())
+
+    std::string shapeDescription;
+    while (std::getline(strm, shapeDescription))
     {
-        m_draft.InsertShape(std::move(m_shapesFactory->CreateShape(strm)));
+        if (!shapeDescription.empty())
+        {
+            try
+            {
+                m_draft.InsertShape(std::move(m_shapesFactory->CreateShape(shapeDescription)));
+            }
+            catch (const std::exception & exp)
+            {
+                std::cout << exp.what() << "\n";
+            }
+        }
     }
     return m_draft;
 }

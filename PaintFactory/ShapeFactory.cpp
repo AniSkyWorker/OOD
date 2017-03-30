@@ -1,5 +1,9 @@
 #include "stdafx.h"
 #include "ShapeFactory.h"
+#include "Triangle.h"
+#include "Rectangle.h"
+#include "RegularPolygon.h"
+#include "Ellipse.h"
 
 namespace
 {
@@ -9,33 +13,78 @@ bool IsUnknownSymbol(const char & symbol)
 	return (!isalpha(symbol) && !isspace(symbol) && !isalnum(symbol));
 }
 
+std::string GetExampleByType(ShapeType type)
+{
+    switch(type)
+    {
+    case ShapeType::Rectangle:
+        return "rectangle x1 y1 x2 y2 color";
+    case ShapeType::Triangle:
+        return "triangle x1 y1 x2 y2 x3 y3 color";
+    case ShapeType::Ellipse:
+        return "ellipse x1 y1 r1 r2 color";
+    case ShapeType::Polygon:
+        return "polygon x1 y1 r1 pointCount color";
+    default:
+        return "";
+    }
+}
+
+ShapeType GetShapeTypeByStr(const std::string & type)
+{
+    if (type == "rectangle")
+    {
+        return ShapeType::Rectangle;
+    }
+    else if (type == "triangle")
+    {
+        return ShapeType::Triangle;
+    }
+    else if (type == "ellipse")
+    {
+        return ShapeType::Ellipse;
+    }
+    else if (type == "polygon")
+    {
+        return ShapeType::Polygon;
+    }
+    throw std::runtime_error("Cant find shape by " + type + " type");
+}
+
 }
 
 CShapeFactory::CShapeFactory()
 	: m_actionMap ({
-		{ "polygon", bind(&CShapeFactory::AddPolygon, this, std::placeholders::_1) },
-		{ "ellipse", bind(&CShapeFactory::AddEllipse, this, std::placeholders::_1) },
-		{ "rectangle", bind(&CShapeFactory::AddRectangle, this, std::placeholders::_1) },
-		{ "triangle", bind(&CShapeFactory::AddTriangle, this, std::placeholders::_1) }
-})
+		{ ShapeType::Polygon, bind(&CShapeFactory::AddPolygon, this, std::placeholders::_1) },
+		{ ShapeType::Ellipse, bind(&CShapeFactory::AddEllipse, this, std::placeholders::_1) },
+		{ ShapeType::Rectangle, bind(&CShapeFactory::AddRectangle, this, std::placeholders::_1) },
+		{ ShapeType::Triangle, bind(&CShapeFactory::AddTriangle, this, std::placeholders::_1) }
+    })
 {
 }
 
-std::unique_ptr<IShape> CShapeFactory::CreateShape(std::istream & args) const
+std::unique_ptr<IShape> CShapeFactory::CreateShape(const std::string & args) const
 {
-	std::string action;
-    args >> action;
+	std::stringstream strm(args);
+    strm.exceptions(std::ios::failbit);
 
-	auto it = m_actionMap.find(action);
+    std::string typeStr;
+    strm >> typeStr;
+
+    auto type = GetShapeTypeByStr(typeStr);
+
+	auto it = m_actionMap.find(type);
 	if (it != m_actionMap.end())
 	{
-		return it->second(args);
+        try
+        {
+            return it->second(strm);
+        }
+        catch (const std::ios::failure&)
+        {
+            throw std::runtime_error("Cant create shape from " + strm.str() + ". \nExample: " + GetExampleByType(type));
+        }
 	}
-
-    if (!action.empty())
-    {
-        std::cout << "Cant find shape by " + action + " type" << "\n";
-    }
 
 	return nullptr;
 }

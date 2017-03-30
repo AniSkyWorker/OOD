@@ -9,15 +9,6 @@ void CPainter::DrawPicture(CCanvas & canvas, const IPictureDraft & draft) const
         shape.Draw(canvas);
     }
 
-    canvas.display();
-
-    while (canvas.isOpen())
-    {
-        sf::Event event;
-        while (canvas.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                canvas.close();
-        }
-    }
+    canvas.Show();
+    canvas.WaitingForClose();
 }

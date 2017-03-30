@@ -7,7 +7,7 @@ class CClient
 public:
     CClient(IDesigner & designer, const IPainter & painter);
 
-    void CreatePicture(); 
+    void CreatePicture(std::istream & strm);
 
 private:
 	IDesigner & m_designer;

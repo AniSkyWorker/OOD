@@ -1,15 +1,15 @@
 #include "stdafx.h"
 #include "Ellipse.h"
 
-CEllipse::CEllipse(const SPoint & center, float radius, float radius1)
-    : m_fRadius(radius)
-    , m_sRadius(radius1)
+CEllipse::CEllipse(const SPoint & center, float horizontalRadius, float verticalRadius)
+    : m_horizontalRadius(horizontalRadius)
+    , m_verticalRadius(verticalRadius)
     , m_center(center)
 {}
 
 void CEllipse::Draw(ICanvas & canvas)
 {
-    canvas.DrawEllipse(m_center, m_fRadius, m_sRadius, GetColor());
+    canvas.DrawEllipse(m_center, m_verticalRadius, m_horizontalRadius, GetColor());
 }
 
 SPoint CEllipse::GetCenter() const
@@ -19,11 +19,11 @@ SPoint CEllipse::GetCenter() const
 
 float CEllipse::GetVerticalRadius() const
 {
-    return m_fRadius;
+    return m_horizontalRadius;
 }
 
 float CEllipse::GetHorizontalRadius() const
 {
-    return m_sRadius;
+    return m_verticalRadius;
 }
 

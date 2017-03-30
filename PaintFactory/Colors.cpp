@@ -30,7 +30,7 @@ sf::Color StringToColor(const std::string & colors)
     }
     else
     {
-        throw std::runtime_error("Incorrect color!");
+        throw std::runtime_error("Incorrect color!\n Colors: blue, red, black, yellow, white");
     }
 
     return color;
