@@ -15,6 +15,7 @@ void InitPictureFromLayout(CClient & client, const std::string & filename)
     client.CreatePicture(file);
 }
 }
+
 int main(int argc, char ** argv)
 {
     try

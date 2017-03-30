@@ -4,5 +4,5 @@
 class CPainter : public IPainter
 {
 public:
-    void DrawPicture(CCanvas & canvas, const IPictureDraft & draft) const override;
+    void DrawPicture(ICanvas & canvas, const IPictureDraft & draft) const override;
 };
