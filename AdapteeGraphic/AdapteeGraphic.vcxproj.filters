@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="graphics_lib">
+      <UniqueIdentifier>{b0124f88-9856-4081-91d8-90625d7941de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shape_drawing_lib">
+      <UniqueIdentifier>{426c810c-81dc-4086-ab65-1ef29ad74923}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modern_graphics_lib">
+      <UniqueIdentifier>{7e15656d-513d-4511-9a65-8ff5def625b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pro">
+      <UniqueIdentifier>{804e4a7e-6e3e-409d-a571-4ef757afa5a5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ICanvas.h">
+      <Filter>graphics_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>graphics_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="ICanvasDrawable.h">
+      <Filter>shape_drawing_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>shape_drawing_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>shape_drawing_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="CanvasPainter.h">
+      <Filter>shape_drawing_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Pro.h">
+      <Filter>pro</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="ModernGraphicsRenderer.h">
+      <Filter>modern_graphics_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="ModernCanvas.h" />
+    <ClInclude Include="ModernCanvasRenderer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>graphics_lib</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
+      <Filter>shape_drawing_lib</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>shape_drawing_lib</Filter>
+    </ClCompile>
+    <ClCompile Include="CanvasPainter.cpp">
+      <Filter>shape_drawing_lib</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="ModernGraphicsRenderer.cpp">
+      <Filter>modern_graphics_lib</Filter>
+    </ClCompile>
+    <ClCompile Include="ModernCanvas.cpp" />
+    <ClCompile Include="ModernCanvasRenderer.cpp" />
+  </ItemGroup>
+</Project>
