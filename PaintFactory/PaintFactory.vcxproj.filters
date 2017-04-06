@@ -76,6 +76,7 @@
       <Filter>Shapes</Filter>
     </ClInclude>
     <ClInclude Include="ShapeType.h" />
+    <ClInclude Include="ApplicationWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbstractShape.cpp">
@@ -117,5 +118,6 @@
     <ClCompile Include="Colors.cpp">
       <Filter>Shapes</Filter>
     </ClCompile>
+    <ClCompile Include="ApplicationWindow.cpp" />
   </ItemGroup>
 </Project>

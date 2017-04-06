@@ -5,29 +5,33 @@ using namespace color;
 
 const unsigned ELLIPSE_QUALITY = 70;
 
-CCanvas::CCanvas()
-    : sf::RenderWindow(sf::VideoMode(800, 600), "Canvas", sf::Style::Close)
+void CCanvas::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
+    for (auto const& drawableObj : m_displayList)
+    {
+        target.draw(*drawableObj, states);
+    }
 }
 
 void CCanvas::SetColor(sf::Color backgroundColor)
 {
     m_color = backgroundColor;
-    clear(backgroundColor);
 }
 
-void CCanvas::DrawLine(const SPoint & from, const SPoint & to, sf::Color color)
+void CCanvas::DrawLine(const SPoint & from, const SPoint & to)
 {
-    sf::Vertex line[] =
+    sf::Vertex points[] =
     {
-        sf::Vertex({ from.x, from.y }, color),
-        sf::Vertex({ to.x, to.y }, color)
+        sf::Vertex({ from.x, from.y }, m_color),
+        sf::Vertex({ to.x, to.y }, m_color)
     };
-    draw(line, 2, sf::Lines);
-    //std::cout << "Draw " + color::ColorToString(color) + " line from " + from.ToString() + " to " + to.ToString() << "\n";
+
+    sf::VertexArray line(sf::Lines, 2);
+    std::for_each(std::begin(points), std::end(points), [&line](const sf::Vertex& vertex) {line.append(vertex); });
+    m_displayList.push_back(std::make_unique<sf::VertexArray>(line));
 }
 
-void CCanvas::DrawEllipse(const SPoint & center, float width, float height, sf::Color color)
+void CCanvas::DrawEllipse(const SPoint & center, float width, float height)
 {
     sf::ConvexShape ellipse;
     ellipse.setPointCount(ELLIPSE_QUALITY);
@@ -44,30 +48,7 @@ void CCanvas::DrawEllipse(const SPoint & center, float width, float height, sf::
     ellipse.setPosition(center.x, center.y);
     ellipse.setFillColor(m_color);
     ellipse.setOutlineThickness(1.f);
-    ellipse.setOutlineColor(color);
+    ellipse.setOutlineColor(m_color);
 
-    draw(ellipse);
-
-   // std::cout << "Draw " + color::ColorToString(color) + " ellipse with radiuses: " + std::to_string(width) + " and " + std::to_string(height) << "\n"
-   //     << "with center in" << center.ToString() << "\n";
-}
-
-void CCanvas::Show()
-{
-    display();
-}
-
-void CCanvas::WaitingForClose()
-{
-    while (isOpen())
-    {
-        sf::Event event;
-        while (pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-            {
-                close();
-            }
-        }
-    }
+    m_displayList.push_back(std::make_unique<sf::ConvexShape>(ellipse));
 }

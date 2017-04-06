@@ -9,7 +9,7 @@ CRegularPolygon::CRegularPolygon(const SPoint & center, float radius, unsigned v
 
 void CRegularPolygon::Draw(ICanvas & canvas)
 {
-    auto color = GetColor();
+    canvas.SetColor(GetColor());
     float angle = static_cast<float>(M_PI) * 2 / m_vertexCount;
 
     SPoint firstPoint = GetPolygonPoint(0);
@@ -17,7 +17,7 @@ void CRegularPolygon::Draw(ICanvas & canvas)
     for (unsigned i = 1; i <= m_vertexCount; i++)
     {
         SPoint secondPoint = GetPolygonPoint(i * angle);
-        canvas.DrawLine(firstPoint, secondPoint, color);
+        canvas.DrawLine(firstPoint, secondPoint);
         firstPoint = secondPoint;
     }
 }

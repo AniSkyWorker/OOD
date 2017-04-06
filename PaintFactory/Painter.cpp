@@ -8,7 +8,4 @@ void CPainter::DrawPicture(ICanvas & canvas, const IPictureDraft & draft) const
         IShape & shape = draft.GetShape(i);
         shape.Draw(canvas);
     }
-
-    canvas.Show();
-    canvas.WaitingForClose();
 }

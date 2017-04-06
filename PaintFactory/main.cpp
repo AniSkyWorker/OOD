@@ -3,7 +3,7 @@
 #include "Designer.h"
 #include "Painter.h"
 #include "ShapeFactory.h"
-#include <fstream>
+#include "ApplicationWindow.h"
 
 namespace
 {
@@ -23,6 +23,7 @@ int main(int argc, char ** argv)
         CDesigner designer(std::move(std::make_unique<CShapeFactory>()));
         CPainter painter;
         CClient client(designer, painter);
+
         switch(argc)
         {
         case READ_FROM_FILE_ARG_COUNT:
@@ -32,6 +33,9 @@ int main(int argc, char ** argv)
             client.CreatePicture(std::cin);
             break;
         }
+
+        ApplicationWindow window;
+        window.Run([&client](sf::RenderTarget & window) { client.ShowPicture(window); });
     }
     catch (const std::exception & exc)
     {

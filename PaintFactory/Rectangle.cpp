@@ -11,12 +11,12 @@ void CRectangle::Draw(ICanvas & canvas)
     SPoint topRight(m_topLeft.x + m_dimensions.x, m_topLeft.y);
     SPoint buttomLeft(m_topLeft.x, m_topLeft.y + m_dimensions.y);
     SPoint buttomRight(m_topLeft.x + m_dimensions.x, m_topLeft.y + m_dimensions.y);
-    auto color = GetColor();
+    canvas.SetColor(GetColor());
 
-    canvas.DrawLine(m_topLeft, topRight, color);
-    canvas.DrawLine(m_topLeft, buttomLeft, color);
-    canvas.DrawLine(buttomLeft, buttomRight, color);
-    canvas.DrawLine(topRight, buttomRight, color);
+    canvas.DrawLine(m_topLeft, topRight);
+    canvas.DrawLine(m_topLeft, buttomLeft);
+    canvas.DrawLine(buttomLeft, buttomRight);
+    canvas.DrawLine(topRight, buttomRight);
 }
 
 SPoint CRectangle::GetTopLeft() const

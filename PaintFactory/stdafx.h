@@ -22,6 +22,7 @@
 #include <functional>
 #include <algorithm>
 #include <SFML/Graphics.hpp>
+#include <fstream>
 
 #define _USE_MATH_DEFINES
 #include <math.h>

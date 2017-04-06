@@ -9,7 +9,8 @@ CEllipse::CEllipse(const SPoint & center, float horizontalRadius, float vertical
 
 void CEllipse::Draw(ICanvas & canvas)
 {
-    canvas.DrawEllipse(m_center, m_verticalRadius, m_horizontalRadius, GetColor());
+    canvas.SetColor(GetColor());
+    canvas.DrawEllipse(m_center, m_verticalRadius, m_horizontalRadius);
 }
 
 SPoint CEllipse::GetCenter() const

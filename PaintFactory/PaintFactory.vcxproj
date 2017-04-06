@@ -149,6 +149,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AbstractShape.h" />
+    <ClInclude Include="ApplicationWindow.h" />
     <ClInclude Include="Canvas.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Colors.h" />
@@ -173,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbstractShape.cpp" />
+    <ClCompile Include="ApplicationWindow.cpp" />
     <ClCompile Include="Canvas.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Colors.cpp" />

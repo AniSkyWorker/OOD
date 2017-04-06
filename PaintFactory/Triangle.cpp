@@ -9,10 +9,10 @@ CTriangle::CTriangle(const SPoint & first, const SPoint & second, const SPoint &
 
 void CTriangle::Draw(ICanvas & canvas)
 {
-    auto color = GetColor();
-    canvas.DrawLine(m_first, m_second, color);
-    canvas.DrawLine(m_first, m_third, color);
-    canvas.DrawLine(m_second, m_third, color);
+    canvas.SetColor(GetColor());
+    canvas.DrawLine(m_first, m_second);
+    canvas.DrawLine(m_first, m_third);
+    canvas.DrawLine(m_second, m_third);
 }
 
 SPoint CTriangle::GetFirstVertex() const

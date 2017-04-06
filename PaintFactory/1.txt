@@ -1,6 +1,5 @@
-blue
 rectangle 200 200 300 300 red
 ellipse 450 300 100 50 yellow
 ellipse 230 300 100 50 yellow
 triangle 370 350 350 400 100 150 white
-triangle 250 470 450 470 370 420 black
+triangle 250 470 450 470 370 420 white
