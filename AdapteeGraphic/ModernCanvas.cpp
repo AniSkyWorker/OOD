@@ -21,6 +21,7 @@ void CModernCanvas::MoveTo(int x, int y)
 void CModernCanvas::LineTo(int x, int y)
 {
     m_modernRenderer.DrawLine(m_point, { x, y });
+    MoveTo(x, y);
 }
 
 }

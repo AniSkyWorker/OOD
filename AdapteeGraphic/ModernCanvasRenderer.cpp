@@ -21,6 +21,7 @@ void CModernCanvasRenderer::MoveTo(int x, int y)
 void CModernCanvasRenderer::LineTo(int x, int y)
 {
     DrawLine(m_point, { x, y });
+    MoveTo(x, y);
 }
 
 }
