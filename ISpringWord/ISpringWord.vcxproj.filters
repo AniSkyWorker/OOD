@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Doc">
+      <UniqueIdentifier>{33ea3d93-75b5-4d94-a283-fed5cd494021}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Elements">
+      <UniqueIdentifier>{151937d5-165e-4878-81f5-ee835963ba18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command">
+      <UniqueIdentifier>{a50da70b-3cbb-4213-a2f2-456acdc832b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="html">
+      <UniqueIdentifier>{f609d444-cb69-49f5-ab96-4d8398f20d26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\Errors">
+      <UniqueIdentifier>{0ff8fc52-7abd-46cd-a294-dcd3801450b2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DocumentItem.h">
+      <Filter>Doc</Filter>
+    </ClInclude>
+    <ClInclude Include="IDocument.h">
+      <Filter>Doc</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstDocumentItem.h">
+      <Filter>Doc</Filter>
+    </ClInclude>
+    <ClInclude Include="Document.h">
+      <Filter>Doc</Filter>
+    </ClInclude>
+    <ClInclude Include="Paragraph.h">
+      <Filter>Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="IParagraph.h">
+      <Filter>Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="IImage.h">
+      <Filter>Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeStringCommand.h">
+      <Filter>Command</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractCommand.h">
+      <Filter>Command</Filter>
+    </ClInclude>
+    <ClInclude Include="ICommand.h">
+      <Filter>Command</Filter>
+    </ClInclude>
+    <ClInclude Include="ICommand_fwd.h">
+      <Filter>Command</Filter>
+    </ClInclude>
+    <ClInclude Include="History.h">
+      <Filter>Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="HTMLEditor.h">
+      <Filter>html</Filter>
+    </ClInclude>
+    <ClInclude Include="InsertDocumentItemCommand.h">
+      <Filter>Command</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteItemCommand.h">
+      <Filter>Command</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionErrors.h">
+      <Filter>Command\Errors</Filter>
+    </ClInclude>
+    <ClInclude Include="ResizeCommand.h">
+      <Filter>Command</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Document.cpp">
+      <Filter>Doc</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentItem.cpp">
+      <Filter>Doc</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstDocumentItem.cpp">
+      <Filter>Doc</Filter>
+    </ClCompile>
+    <ClCompile Include="Paragraph.cpp">
+      <Filter>Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractCommand.cpp">
+      <Filter>Command</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeStringCommand.cpp">
+      <Filter>Command</Filter>
+    </ClCompile>
+    <ClCompile Include="History.cpp">
+      <Filter>Command</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="HTMLEditor.cpp">
+      <Filter>html</Filter>
+    </ClCompile>
+    <ClCompile Include="InsertDocumentItemCommand.cpp">
+      <Filter>Command</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteItemCommand.cpp">
+      <Filter>Command</Filter>
+    </ClCompile>
+    <ClCompile Include="PositionErrors.cpp">
+      <Filter>Command\Errors</Filter>
+    </ClCompile>
+    <ClCompile Include="ResizeCommand.cpp">
+      <Filter>Command</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
