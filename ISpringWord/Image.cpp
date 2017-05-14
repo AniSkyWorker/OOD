@@ -11,15 +11,17 @@ CImage::CImage(const path & path, unsigned width, unsigned height, CHistory& his
     , m_height(height)
     , m_history(history)
 {
-   if (!exists(path))
-   {
-       throw runtime_error("Incorrect image path: " + path.string());
-   }
-
+    if (!exists(path))
+    {
+        throw runtime_error("Incorrect image path: " + path.generic_string());
+    }
     char unique_name[FILENAME_MAX];
     tmpnam(unique_name);
-    copy_file(path, unique_name);
-    m_path = unique_name;
+
+    string pathPageStr(unique_name);
+    pathPageStr += path.extension().generic_string();
+    copy_file(path, pathPageStr);
+    m_path = pathPageStr;
 }
 
 CImage::~CImage()

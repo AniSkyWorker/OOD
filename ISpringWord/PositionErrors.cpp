@@ -12,11 +12,11 @@ InvalidPositionError::InvalidPositionError()
 }
 
 UnexpectedPosition::UnexpectedPosition(const std::string& expected)
-    : runtime_error("Excpected position index or " + expected)
+    : runtime_error("Expected position index or " + expected)
 {
 }
 
 UnexpectedPosition::UnexpectedPosition()
-    : runtime_error("Excpected position index")
+    : runtime_error("Expected position index")
 {
 }
