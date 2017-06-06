@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Canvas">
+      <UniqueIdentifier>{45789ea6-77bc-4999-a104-aa9944b4457d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GroupShape">
+      <UniqueIdentifier>{0f50730f-80ac-45d9-92e3-28ab8fa6f056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shapes">
+      <UniqueIdentifier>{c28e9f0e-4d69-430b-b745-92fc1e3f2804}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Styles">
+      <UniqueIdentifier>{162b75ff-0c24-43ef-9afd-c4e82a2f319d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Drawable">
+      <UniqueIdentifier>{ffebcce9-e08f-4af2-a43e-9cf707556469}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ICanvas.h">
+      <Filter>Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupShape.h">
+      <Filter>GroupShape</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="IShape.h">
+      <Filter>Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Style.h">
+      <Filter>Styles</Filter>
+    </ClInclude>
+    <ClInclude Include="RGBAColor.h">
+      <Filter>Styles</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="IStyle.h">
+      <Filter>Styles</Filter>
+    </ClInclude>
+    <ClInclude Include="LineStyle.h">
+      <Filter>Styles</Filter>
+    </ClInclude>
+    <ClInclude Include="Ellipse.h">
+      <Filter>Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="IShapeGroup.h">
+      <Filter>GroupShape</Filter>
+    </ClInclude>
+    <ClInclude Include="IShapeCollection.h">
+      <Filter>Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="ILineStyle.h">
+      <Filter>Styles</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeCollection.h">
+      <Filter>Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Rect.h">
+      <Filter>Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Slide.h">
+      <Filter>Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="IDrawable.h">
+      <Filter>Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape.h">
+      <Filter>Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>Canvas</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GroupShape.cpp">
+      <Filter>GroupShape</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Ellipse.cpp">
+      <Filter>Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
+      <Filter>Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="LineStyle.cpp">
+      <Filter>Styles</Filter>
+    </ClCompile>
+    <ClCompile Include="Style.cpp">
+      <Filter>Styles</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeCollection.cpp">
+      <Filter>Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Slide.cpp">
+      <Filter>Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>Canvas</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
