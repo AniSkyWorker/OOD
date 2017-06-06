@@ -14,6 +14,6 @@ protected:
 private:
 	std::deque<DocumentItemPtr>& m_items;
 	DocumentItemPtr m_deletedItem;
-	unsigned m_index;
+	size_t m_index;
 };
 

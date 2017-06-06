@@ -15,6 +15,6 @@ protected:
 private:
 	std::deque<DocumentItemPtr> & m_items;
 	DocumentItemPtr m_item;
-	boost::optional<unsigned> m_position;
+	boost::optional<size_t> m_position;
 };
 
