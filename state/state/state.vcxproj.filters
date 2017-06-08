@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Simple">
+      <UniqueIdentifier>{b56a0ea1-cd74-4693-a5c6-a796329ea32b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Double">
+      <UniqueIdentifier>{bd5bdd98-363e-4d72-bab4-510da3c52eae}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GumBallMachineWithState.h">
+      <Filter>Simple</Filter>
+    </ClInclude>
+    <ClInclude Include="GumBallMachineWithDynamicallyCreatedState.h">
+      <Filter>Simple</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleGumballMachineWithState.h">
+      <Filter>Double</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="NaiveDoubleGumballMachine.h">
+      <Filter>Double</Filter>
+    </ClInclude>
+    <ClInclude Include="NaiveGumBallMachine.h">
+      <Filter>Simple</Filter>
+    </ClInclude>
+    <ClInclude Include="IDoubleGumballMachine.h">
+      <Filter>Double</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+</Project>

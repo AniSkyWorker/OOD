@@ -5,13 +5,12 @@
 #include <stdio.h>
 #include <tchar.h>
 
-#include <cstdint>
 #include <iostream>
 #include <fstream>
 #include <memory>
 #include <limits>
 #include <algorithm>
-
 #include <string>
+
 #include <boost/optional.hpp>
 #include <boost/format.hpp>
