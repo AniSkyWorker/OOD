@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="dialogs">
+      <UniqueIdentifier>{abc4fb6c-a7f0-4cad-98dd-fb223f402375}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="harmonics">
+      <UniqueIdentifier>{13cd79dc-3b01-4a55-be4f-997f1fe4a0a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{e4db7b84-b9d6-4f34-92cc-5e590b837757}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="app">
+      <UniqueIdentifier>{954e6179-a3da-47de-88c5-cec36cce6d26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="harmonics\collection">
+      <UniqueIdentifier>{b0399ad5-1b1b-4fa3-851c-8b43c369e77c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\signals">
+      <UniqueIdentifier>{fdeef099-8615-4d55-9d53-cafcb6f1c4fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dialogs\AddDialog">
+      <UniqueIdentifier>{da0aeef4-a62c-4759-9e17-a97422413615}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dialogs\TableDlg">
+      <UniqueIdentifier>{866692f5-3cb3-4273-879b-b4730f38d832}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dialogs\ChartDlg">
+      <UniqueIdentifier>{245b6512-48c7-470d-9d3f-ea204116985b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dialogs\MainDialog">
+      <UniqueIdentifier>{2541240c-52dc-4716-aa44-0fa8afa2ca8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="presenter">
+      <UniqueIdentifier>{13c4ddef-c542-4b00-90f5-3b926b336dbe}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FunctionType.h">
+      <Filter>harmonics</Filter>
+    </ClInclude>
+    <ClInclude Include="Harmonic.h">
+      <Filter>harmonics</Filter>
+    </ClInclude>
+    <ClInclude Include="IHarmonic.h">
+      <Filter>harmonics</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowUtils.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="HarmonicsApp.h">
+      <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="HarmonicCollection.h">
+      <Filter>harmonics\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="IHarmonicCollection.h">
+      <Filter>harmonics\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="ScopedConnectionsStorage.h">
+      <Filter>utils\signals</Filter>
+    </ClInclude>
+    <ClInclude Include="Signals.h">
+      <Filter>utils\signals</Filter>
+    </ClInclude>
+    <ClInclude Include="HarmonicPreviewGenerator.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="AddHarmonicDlg.h">
+      <Filter>dialogs\AddDialog</Filter>
+    </ClInclude>
+    <ClInclude Include="IChartView.h">
+      <Filter>dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="TableDlg.h">
+      <Filter>dialogs\TableDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartDlg.h">
+      <Filter>dialogs\ChartDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="IMainDlgView.h">
+      <Filter>dialogs\MainDialog</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainDlgPresenter.h">
+      <Filter>presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="MainDlg.h">
+      <Filter>dialogs\MainDialog</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Harmonic.cpp">
+      <Filter>harmonics</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowUtils.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="HarmonicsApp.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
+    <ClCompile Include="HarmonicCollection.cpp">
+      <Filter>harmonics\collection</Filter>
+    </ClCompile>
+    <ClCompile Include="HarmonicPreviewGenerator.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="AddHarmonicDlg.cpp">
+      <Filter>dialogs\AddDialog</Filter>
+    </ClCompile>
+    <ClCompile Include="TableDlg.cpp">
+      <Filter>dialogs\TableDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartDlg.cpp">
+      <Filter>dialogs\ChartDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="MainDlgPresenter.cpp">
+      <Filter>presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="MainDlg.cpp">
+      <Filter>dialogs\MainDialog</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Harmonics.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Harmonics.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Harmonics.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
